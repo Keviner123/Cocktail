@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31462446-36DF-4080-81C5-77D8133903FF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bartender</RootNamespace>
+    <AssemblyName>Bartender</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\DAL_AddIngredientsAndDrinks.cs" />
+    <Compile Include="DAL\DAL_DB.cs" />
+    <Compile Include="Migrations\202108241227568_aadad.cs" />
+    <Compile Include="Migrations\202108241227568_aadad.designer.cs">
+      <DependentUpon>202108241227568_aadad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Drink.cs" />
+    <Compile Include="View\Ingredient.cs" />
+    <Compile Include="View\Liquid.cs" />
+    <Compile Include="Migrations\202108241100196_InitialCreate.cs" />
+    <Compile Include="Migrations\202108241100196_InitialCreate.designer.cs">
+      <DependentUpon>202108241100196_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108241126545_abc.cs" />
+    <Compile Include="Migrations\202108241126545_abc.designer.cs">
+      <DependentUpon>202108241126545_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108241137315_ads.cs" />
+    <Compile Include="Migrations\202108241137315_ads.designer.cs">
+      <DependentUpon>202108241137315_ads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108241201509_aaaaaa.cs" />
+    <Compile Include="Migrations\202108241201509_aaaaaa.designer.cs">
+      <DependentUpon>202108241201509_aaaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108241208457_aka.cs" />
+    <Compile Include="Migrations\202108241208457_aka.designer.cs">
+      <DependentUpon>202108241208457_aka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108241100196_InitialCreate.resx">
+      <DependentUpon>202108241100196_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108241126545_abc.resx">
+      <DependentUpon>202108241126545_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108241137315_ads.resx">
+      <DependentUpon>202108241137315_ads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108241201509_aaaaaa.resx">
+      <DependentUpon>202108241201509_aaaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108241208457_aka.resx">
+      <DependentUpon>202108241208457_aka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108241227568_aadad.resx">
+      <DependentUpon>202108241227568_aadad.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
