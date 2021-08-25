@@ -19,33 +19,75 @@ namespace Bartender.DAL
             public DbSet<Liquid> Liquid { get; set; }
 
 
-            public void GetAll()
+            public void AddNewLiquid(string liquidname, double alcoholpercentage)
             {
                 using (var ctx = new DAL_DB())
                 {
-                    ctx.Drinks.
+                    ctx.Liquid.Add(new Liquid() { Name = liquidname, AlcoholPercentage = alcoholpercentage });
+                    ctx.SaveChanges();
+
                 }
-            }
+         }
 
-            public void FillDatabase()
+        public void AddNewDrink(string drinkname)
+        {
+            using (var ctx = new DAL_DB())
             {
+                ctx.Drinks.Add(new Drink() { Name = drinkname });
+                ctx.SaveChanges();
+            }
+        }
 
-
-                using (var ctx = new DAL_DB())
-                {
-                var CokeAdd = new Drink();
-                CokeAdd.Name = "AGoodDrink";
+        public void AddLiquidToDrink(string drinkname, string ingredientid, int amount)
+        {
+            using (var ctx = new DAL_DB())
+            {
+                var CokeAdd = ctx.Drinks.Find(drinkname);
                 CokeAdd.Ingredient = new List<Ingredient>() { 
 
-                        //AI Ingredient ID
-                        new Ingredient(ctx.Liquid.Find("Coke"), 250),
-                        //new Ingredient(ctx.Liquid.Find("Rum"), 250),
+                        new Ingredient(ctx.Liquid.Find(ingredientid), amount),
                 };
-
 
                 ctx.Drinks.Add(CokeAdd);
                 ctx.SaveChanges();
+            }
+        }
+
+        public string GetAllLiquids()
+            {
+                string finalstring = "";
+                using (var ctx = new DAL_DB())
+                {
+                    foreach (var liquid in ctx.Liquid)
+                    {
+                        finalstring += liquid.Name+"\n";
+                    }
                 }
+            return(finalstring);
+            }
+
+
+        public string GetAllDrinks()
+        {
+            string finalstring = "";
+            using (var ctx = new DAL_DB())
+            {
+                foreach (var drink in ctx.Drinks)
+                {
+                    finalstring += drink.Name+ "(";
+
+                    if(drink.Ingredient != null)
+                    {
+                        foreach (var ingredient in drink.Ingredient)
+                        {
+                            finalstring += ingredient + "-";
+                        }
+                    }
+
+                    finalstring += ")\n";
+                }
+            }
+            return (finalstring);
         }
     }
 }

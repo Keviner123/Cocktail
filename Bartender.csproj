@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\DAL_AddIngredientsAndDrinks.cs" />
     <Compile Include="DAL\DAL_DB.cs" />
     <Compile Include="Migrations\202108241227568_aadad.cs" />
     <Compile Include="Migrations\202108241227568_aadad.designer.cs">
